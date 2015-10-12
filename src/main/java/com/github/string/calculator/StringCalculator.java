@@ -7,6 +7,7 @@ public class StringCalculator {
         if (input == null || input.isEmpty()) {
             return 0;
         }
+        input = input.replace('\n', ',');
         return Arrays.stream(input.split(",")).mapToInt(Integer::parseInt).sum();
     }
 }
