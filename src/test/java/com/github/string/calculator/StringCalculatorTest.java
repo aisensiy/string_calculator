@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 public class StringCalculatorTest {
     @Test
     public void should_return_0_for_empty() {
-        assertThat(sum("0"), is(0));
+        assertThat(sum(""), is(0));
     }
 
     @Test
