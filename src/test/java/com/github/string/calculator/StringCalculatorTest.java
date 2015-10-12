@@ -43,5 +43,38 @@ public class StringCalculatorTest {
     @Test
     public void should_support_customzied_demilitor() {
         assertThat(sum("//;\n1;2"), is(3));
+        assertThat(sum("//;\n1;5"), is(6));
+        assertThat(sum("//%\n1%5"), is(6));
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void should_raise_exception_with_negative_number() {
+        sum("-1");
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void should_raise_exception_with_negative_number2() {
+        sum("1,-1");
+    }
+
+    @Test
+    public void should_get_value_with_dash() {
+        assertThat(sum("//-\n1-5"), is(6));
+    }
+
+    @Test
+    public void should_get_2_given_2_1001() {
+        assertThat(sum("2,1001"), is(2));
+    }
+
+    @Test
+    public void should_support_customized_string_splitter() {
+        assertThat(sum("//[xxx]\n1xxx2xxx3"), is(6));
+        assertThat(sum("//[aaaa]\n1aaaa2aaaa3"), is(6));
+    }
+
+    @Test
+    public void should_support_multi_customized_splitter() {
+        assertThat(sum("//[*][%]\n1*2%3"), is(6));
     }
 }
