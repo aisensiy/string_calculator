@@ -2,8 +2,6 @@ package com.github.string.calculator;
 
 import org.junit.Test;
 
-import java.util.regex.Pattern;
-
 import static com.github.string.calculator.StringCalculator.sum;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -40,5 +38,10 @@ public class StringCalculatorTest {
     @Test
     public void should_support_new_line() {
         assertThat(sum("1\n2,3"), is(6));
+    }
+
+    @Test
+    public void should_support_customzied_demilitor() {
+        assertThat(sum("//;\n1;2"), is(3));
     }
 }
