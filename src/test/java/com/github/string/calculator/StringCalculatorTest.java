@@ -22,5 +22,6 @@ public class StringCalculatorTest {
     @Test
     public void should_return_sum_of_two_values() {
         assertThat(sum("1,2"), is(3));
+        assertThat(sum("1,1"), is(2));
     }
 }
