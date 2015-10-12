@@ -8,6 +8,11 @@ import static org.junit.Assert.assertThat;
 
 public class StringCalculatorTest {
     @Test
+    public void should_return_0_for_null() {
+        assertThat(sum(null), is(0));
+    }
+
+    @Test
     public void should_return_0_for_empty() {
         assertThat(sum(""), is(0));
     }
@@ -23,5 +28,10 @@ public class StringCalculatorTest {
     public void should_return_sum_of_two_values() {
         assertThat(sum("1,2"), is(3));
         assertThat(sum("1,1"), is(2));
+    }
+
+    @Test
+    public void should_return_sum_of_unknown_numbers_of_values() {
+        assertThat(sum("1,1,1"), is(3));
     }
 }
