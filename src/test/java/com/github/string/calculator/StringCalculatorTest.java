@@ -17,4 +17,9 @@ public class StringCalculatorTest {
         assertThat(sum("1"), is(1));
         assertThat(sum("2"), is(2));
     }
+
+    @Test
+    public void should_return_sum_of_two_values() {
+        assertThat(sum("1,2"), is(3));
+    }
 }
