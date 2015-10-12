@@ -2,6 +2,8 @@ package com.github.string.calculator;
 
 import org.junit.Test;
 
+import java.util.regex.Pattern;
+
 import static com.github.string.calculator.StringCalculator.sum;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -33,5 +35,10 @@ public class StringCalculatorTest {
     @Test
     public void should_return_sum_of_unknown_numbers_of_values() {
         assertThat(sum("1,1,1"), is(3));
+    }
+
+    @Test
+    public void should_support_new_line() {
+        assertThat(sum("1\n2,3"), is(6));
     }
 }
