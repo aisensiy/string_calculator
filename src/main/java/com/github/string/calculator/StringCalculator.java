@@ -3,7 +3,8 @@ package com.github.string.calculator;
 public class StringCalculator {
     public static int sum(String input) {
         if (input.contains(",")) {
-            return 3;
+            String[] split = input.split(",");
+            return Integer.parseInt(split[0]) + Integer.parseInt(split[1]);
         }
         return Integer.parseInt(input);
     }
