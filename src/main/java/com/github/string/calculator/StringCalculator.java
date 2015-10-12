@@ -1,14 +1,12 @@
 package com.github.string.calculator;
 
+import java.util.Arrays;
+
 public class StringCalculator {
     public static int sum(String input) {
-        if (input.isEmpty()) {
+        if (input == null || input.isEmpty()) {
             return 0;
         }
-        if (input.contains(",")) {
-            String[] split = input.split(",");
-            return Integer.parseInt(split[0]) + Integer.parseInt(split[1]);
-        }
-        return Integer.parseInt(input);
+        return Arrays.stream(input.split(",")).mapToInt(Integer::parseInt).sum();
     }
 }
