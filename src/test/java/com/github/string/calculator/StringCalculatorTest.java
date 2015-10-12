@@ -16,6 +16,7 @@ public class StringCalculatorTest {
     public void should_return_same_value_for_single_input() {
         assertThat(sum("1"), is(1));
         assertThat(sum("2"), is(2));
+        assertThat(sum("12"), is(12));
     }
 
     @Test
